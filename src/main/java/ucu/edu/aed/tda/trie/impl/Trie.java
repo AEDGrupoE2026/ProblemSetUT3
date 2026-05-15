@@ -5,7 +5,6 @@ import java.util.function.Consumer;
 import java.util.List;
 
 public class Trie<T> implements TTrie<T> {
-    
 
     public Trie() {
 
