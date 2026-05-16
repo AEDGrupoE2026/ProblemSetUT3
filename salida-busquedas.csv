@@ -1,7 +1,0 @@
-estructura,memoria,tiempo
-MedicionBuscarLinkedList,937,26 kB,1,51 s
-MedicionBuscarArrayList,937,27 kB,1,06 s
-MedicionBuscarTrie,0 B,788,60 µs
-MedicionBuscarHashMap,1,33 MB,1,52 ms
-MedicionBuscarTreeMap,1,33 MB,4,47 ms
-

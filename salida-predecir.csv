@@ -1,5 +1,0 @@
-estructura,memoria,tiempo
-MedicionPredecirTrie,0 B,12,50 µs
-MedicionPredecirLinkedList,937,26 kB,28,59 ms
-MedicionPredecirHashMap,1,33 MB,50,74 ms
-
