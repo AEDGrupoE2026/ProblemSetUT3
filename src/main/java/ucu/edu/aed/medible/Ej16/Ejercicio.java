@@ -85,7 +85,6 @@ public class Ejercicio {
     }
     public static void main(String[] args) {
         Ejercicio ej = new Ejercicio();
-
         Persona abuela = new Persona("Abuela", 1940);
         ArbolGenerico<Persona> arbol = new ArbolGenerico<>(abuela);
         //Aca se crean los tres primeros hijos
@@ -123,7 +122,7 @@ public class Ejercicio {
 
         System.out.println("\nAncestro común de Nieto1 y Nieto2:");
         System.out.println(ej.ancestroComun(arbol, nieto1, nieto2));
-        
+
         System.out.println("\n¿Bisnieto1 es descendiente de Hijo1?");
         System.out.println(ej.esDescendiente(arbol, hijo1, bis1));
         

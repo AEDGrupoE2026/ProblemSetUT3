@@ -23,7 +23,6 @@ public class Ejercicio7 {
 
     private static final int REPETICIONES = 20;
     private static final String PREFIJO = "cas";
-
     public static void main(String[] args) {
         TTrie<String> trie = new Trie<>();
         LinkedList<String> linkedList = new LinkedList<>();
@@ -51,37 +50,44 @@ public class Ejercicio7 {
         ejecutarMedicionesBusqueda(linkedList, arrayList, trie, hashMap, treeMap, palabrasParaBuscar);
         ejecutarMedicionesPredecir(linkedList, trie, hashMap);
     }
-    private static void ejecutarMedicionesBusqueda(LinkedList<String> linkedList, ArrayList<String> arrayList,TTrie<String> trie,HashMap<String, String> hashMap, TreeMap<String, String> treeMap,  LinkedList<String> palabrasParaBuscar) {
+
+    private static void ejecutarMedicionesBusqueda(
+        LinkedList<String> linkedList,
+        ArrayList<String> arrayList,
+        TTrie<String> trie,
+        HashMap<String, String> hashMap,
+        TreeMap<String, String> treeMap,
+        LinkedList<String> palabrasParaBuscar) {
+
         LinkedList<Medible<List<String>>> medibles = new LinkedList<>();
         medibles.add(new MedicionBuscarLinkedList(linkedList));
         medibles.add(new MedicionBuscarArrayList(arrayList));
         medibles.add(new MedicionBuscarTrie(trie));
         medibles.add(new MedicionBuscarHashMap(hashMap));
         medibles.add(new MedicionBuscarTreeMap(treeMap));
-        String salida = "estructura,memoria,tiempo\n";
+
         System.out.println("Ejercicio 7 - Parte 4: mediciones de busqueda");
         System.out.println("------------------------------------------------");
         for (Medible<List<String>> medible : medibles) {
             Medicion medicion = medible.medir(REPETICIONES, palabrasParaBuscar);
-            medicion.print();
-            salida = salida + medicion.toCSV() + "\n";
+            medicion.print(); // solo imprime en consola
         }
-        FileUtils.escribirLineas("salida-busquedas.csv", salida);
     }
-    private static void ejecutarMedicionesPredecir(LinkedList<String> linkedList,TTrie<String> trie, HashMap<String, String> hashMap) {
+
+    private static void ejecutarMedicionesPredecir(
+        LinkedList<String> linkedList,
+        TTrie<String> trie,
+        HashMap<String, String> hashMap) {
         LinkedList<Medible<String>> medibles = new LinkedList<>();
         medibles.add(new MedicionPredecirTrie(trie));
         medibles.add(new MedicionPredecirLinkedList(linkedList));
         medibles.add(new MedicionPredecirHashMap(hashMap));
-        String salida = "estructura,memoria,tiempo\n";
         System.out.println();
         System.out.println("Ejercicio 7 - Parte 5: mediciones de predecir con prefijo \"" + PREFIJO + "\"");
         System.out.println("----------------------------------------------------------------");
         for (Medible<String> medible : medibles) {
             Medicion medicion = medible.medir(REPETICIONES, PREFIJO);
             medicion.print();
-            salida = salida + medicion.toCSV() + "\n";
         }
-        FileUtils.escribirLineas("salida-predecir.csv", salida);
     }
 }

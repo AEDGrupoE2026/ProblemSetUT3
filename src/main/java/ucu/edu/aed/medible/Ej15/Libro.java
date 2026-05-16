@@ -13,9 +13,6 @@ public class Libro {
         this.autor = autor;
         this.anio = anio;
     }
-
-    // Getters y setters omitidos por brevedad
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true; // mismo objeto
@@ -23,19 +20,16 @@ public class Libro {
         Libro libro = (Libro) o;
         return isbn != null && isbn.equals(libro.isbn);
     }
-
     @Override
     public int hashCode() {
         return isbn != null ? isbn.hashCode() : 0;
     }
-
     public static void main(String[] args) {
         Libro l1 = new Libro("12345", "El Quijote", "Cervantes", 1605);
         Libro l2 = new Libro("12345", "Don Quijote", "Miguel de Cervantes", 1605);
         HashSet<Libro> set = new HashSet<>();
         set.add(l1);
         set.add(l2);
-
         System.out.println("Tamaño del HashSet: " + set.size());
 
     }
